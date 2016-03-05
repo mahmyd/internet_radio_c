@@ -94,6 +94,7 @@
             resources.ApplyResources(this.ListStatinName, "ListStatinName");
             this.ListStatinName.Name = "ListStatinName";
             this.ListStatinName.SelectedValueChanged += new System.EventHandler(this.ListStatinNameSelectedValueChanged);
+            this.ListStatinName.DragDrop += new System.Windows.Forms.DragEventHandler(this.ListStatinName_DragDrop);
             this.ListStatinName.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ListStatinNameMouseDoubleClick);
             this.ListStatinName.MouseHover += new System.EventHandler(this.ListStatinNameMouseHover1);
             this.ListStatinName.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ListStatinNameMouseDown);

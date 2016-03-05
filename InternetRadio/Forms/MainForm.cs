@@ -701,6 +701,11 @@ namespace MIr.Forms
             
         }
 
+        private void ListStatinName_DragDrop(object sender, DragEventArgs e)
+        {
+
+        }
+
       
 
     }
