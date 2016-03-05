@@ -1,0 +1,203 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Station>
+  <Station id="0">
+    <Name>Kiss </Name>
+    <Linq>http://icy-e-03.sharp-stream.com:80/kiss105.mp3</Linq>
+    <TimeOfPlay>0</TimeOfPlay>
+    <DateAdd>31.08.2012</DateAdd>
+    <TimeAdd>22:17</TimeAdd>
+    <NumOfOpen>17</NumOfOpen>
+  </Station>
+  <Station id="1">
+    <Name>Lux Fm</Name>
+    <Linq>http://stream.lux.fm:8000/</Linq>
+    <TimeOfPlay>0</TimeOfPlay>
+    <DateAdd>31.08.2012</DateAdd>
+    <TimeAdd>22:17</TimeAdd>
+    <NumOfOpen>13</NumOfOpen>
+  </Station>
+  <Station id="2">
+    <Name>Kiss100</Name>
+    <Linq>http://www.everythingeverything.co.uk/ukrp/stream.php?station=Kiss100</Linq>
+    <TimeOfPlay>0</TimeOfPlay>
+    <DateAdd>31.08.2012</DateAdd>
+    <TimeAdd>22:17</TimeAdd>
+    <NumOfOpen>17</NumOfOpen>
+  </Station>
+  <Station id="3">
+    <Name>Mfm</Name>
+    <Linq>http://radio.mfm.ua/online128.m3u</Linq>
+    <TimeOfPlay>0</TimeOfPlay>
+    <DateAdd>31.08.2012</DateAdd>
+    <TimeAdd>22:17</TimeAdd>
+    <NumOfOpen>57</NumOfOpen>
+  </Station>
+  <Station id="4">
+    <Name>Ministry of Sound</Name>
+    <Linq>http://mosradio-livetest.wm.llnwd.net/mosradio_livetest</Linq>
+    <TimeOfPlay>0</TimeOfPlay>
+    <DateAdd>31.08.2012</DateAdd>
+    <TimeAdd>22:17</TimeAdd>
+    <NumOfOpen>13</NumOfOpen>
+  </Station>
+  <Station id="5">
+    <Name>Kiss FM Ukraine</Name>
+    <Linq>http://91.201.37.42:8000/kissasfasdfwdsf</Linq>
+    <TimeOfPlay>0</TimeOfPlay>
+    <DateAdd>31.08.2012</DateAdd>
+    <TimeAdd>22:17</TimeAdd>
+    <NumOfOpen>13</NumOfOpen>
+  </Station>
+  <Station id="6">
+    <Name>DJ Fm</Name>
+    <Linq>http://media.brg.ua/m3u/djfm128.m3u</Linq>
+    <TimeOfPlay>0</TimeOfPlay>
+    <DateAdd>31.08.2012</DateAdd>
+    <TimeAdd>22:17</TimeAdd>
+    <NumOfOpen>77</NumOfOpen>
+  </Station>
+  <Station id="7">
+    <Name>Trance</Name>
+    <Linq>http://streaming.radionomy.com:8000/tranceradio1</Linq>
+    <TimeOfPlay>0</TimeOfPlay>
+    <DateAdd>31.08.2012</DateAdd>
+    <TimeAdd>22:17</TimeAdd>
+    <NumOfOpen>29</NumOfOpen>
+  </Station>
+  <Station id="8">
+    <Name>Dub Step</Name>
+    <Linq>http://72.232.2.83:80</Linq>
+    <TimeOfPlay>0</TimeOfPlay>
+    <DateAdd>31.08.2012</DateAdd>
+    <TimeAdd>22:17</TimeAdd>
+    <NumOfOpen>21</NumOfOpen>
+  </Station>
+  <Station id="9">
+    <Name>Европа +</Name>
+    <Linq>http://onair.eltel.net/europaplus-128k</Linq>
+    <TimeOfPlay>0</TimeOfPlay>
+    <DateAdd>31.08.2012</DateAdd>
+    <TimeAdd>22:17</TimeAdd>
+    <NumOfOpen>45</NumOfOpen>
+  </Station>
+  <Station id="10">
+    <Name>Люкс FM Киев</Name>
+    <Linq>http://stream1.lux.fm:8088</Linq>
+    <TimeOfPlay>0</TimeOfPlay>
+    <DateAdd>31.08.2012</DateAdd>
+    <TimeAdd>22:17</TimeAdd>
+    <NumOfOpen>11</NumOfOpen>
+  </Station>
+  <Station id="11">
+    <Name>Шарманка</Name>
+    <Linq>http://media.brg.ua/m3u/sharmanka128.m3u</Linq>
+    <TimeOfPlay>0</TimeOfPlay>
+    <DateAdd>31.08.2012</DateAdd>
+    <TimeAdd>22:17</TimeAdd>
+    <NumOfOpen>11</NumOfOpen>
+  </Station>
+  <Station id="12">
+    <Name>KISS FM</Name>
+    <Linq>http://stream.kissfm.ua:8000/kiss</Linq>
+    <TimeOfPlay>0</TimeOfPlay>
+    <DateAdd>31.08.2012</DateAdd>
+    <TimeAdd>22:17</TimeAdd>
+    <NumOfOpen>13</NumOfOpen>
+  </Station>
+  <Station id="13">
+    <Name>Радіо Шансон</Name>
+    <Linq>http://media.brg.ua/m3u/shanson128.m3u</Linq>
+    <TimeOfPlay>0</TimeOfPlay>
+    <DateAdd>31.08.2012</DateAdd>
+    <TimeAdd>22:17</TimeAdd>
+    <NumOfOpen>13</NumOfOpen>
+  </Station>
+  <Station id="14">
+    <Name>Hit FM</Name>
+    <Linq>http://online-hitfm.tavrmedia.ua/HitFM</Linq>
+    <TimeOfPlay>0</TimeOfPlay>
+    <DateAdd>31.08.2012</DateAdd>
+    <TimeAdd>22:17</TimeAdd>
+    <NumOfOpen>21</NumOfOpen>
+  </Station>
+  <Station id="15">
+    <Name>Русское Радио Украина</Name>
+    <Linq>http://online-rusradio.tavrmedia.ua/RusRadio</Linq>
+    <TimeOfPlay>0</TimeOfPlay>
+    <DateAdd>31.08.2012</DateAdd>
+    <TimeAdd>22:17</TimeAdd>
+    <NumOfOpen>9</NumOfOpen>
+  </Station>
+  <Station id="16">
+    <Name>Европа + Украина</Name>
+    <Linq>http://www.europaplus.ua/store/public/europaplus64.m3u</Linq>
+    <TimeOfPlay>0</TimeOfPlay>
+    <DateAdd>31.08.2012</DateAdd>
+    <TimeAdd>22:17</TimeAdd>
+    <NumOfOpen>21</NumOfOpen>
+  </Station>
+  <Station id="17">
+    <Name>Наше Радіо</Name>
+    <Linq>http://cast.radiogroup.com.ua:8000/nashe</Linq>
+    <TimeOfPlay>0</TimeOfPlay>
+    <DateAdd>31.08.2012</DateAdd>
+    <TimeAdd>22:17</TimeAdd>
+    <NumOfOpen>13</NumOfOpen>
+  </Station>
+  <Station id="18">
+    <Name>Music Radio</Name>
+    <Linq>http://play.musicradio.kiev.ua:8080/listen128.m3u</Linq>
+    <TimeOfPlay>0</TimeOfPlay>
+    <DateAdd>31.08.2012</DateAdd>
+    <TimeAdd>22:17</TimeAdd>
+    <NumOfOpen>15</NumOfOpen>
+  </Station>
+  <Station id="19">
+    <Name>Львівська хвиля</Name>
+    <Linq>http://ua.uar.net:8000/lwr</Linq>
+    <TimeOfPlay>0</TimeOfPlay>
+    <DateAdd>31.08.2012</DateAdd>
+    <TimeAdd>22:17</TimeAdd>
+    <NumOfOpen>7</NumOfOpen>
+  </Station>
+  <Station id="20">
+    <Name>Стильное Радио</Name>
+    <Linq>http://urg.adamant.net:8080/radio-stilnoe</Linq>
+    <TimeOfPlay>0</TimeOfPlay>
+    <DateAdd>31.08.2012</DateAdd>
+    <TimeAdd>22:17</TimeAdd>
+    <NumOfOpen>15</NumOfOpen>
+  </Station>
+  <Station id="21">
+    <Name>Для двоих</Name>
+    <Linq>http://panel.radio-box.org:8003/radiohit</Linq>
+    <TimeOfPlay>0</TimeOfPlay>
+    <DateAdd>31.08.2012</DateAdd>
+    <TimeAdd>22:17</TimeAdd>
+    <NumOfOpen>25</NumOfOpen>
+  </Station>
+  <Station id="22">
+    <Name>Радио для  двоих</Name>
+    <Linq>http://217.170.67.77/radiohit</Linq>
+    <TimeOfPlay>0</TimeOfPlay>
+    <DateAdd>31.08.2012</DateAdd>
+    <TimeAdd>22:17</TimeAdd>
+    <NumOfOpen>17</NumOfOpen>
+  </Station>
+  <Station id="23">
+    <Name>12</Name>
+    <Linq>sdfgsdg</Linq>
+    <TimeOfPlay>0</TimeOfPlay>
+    <DateAdd>31.08.2012</DateAdd>
+    <TimeAdd>22:30</TimeAdd>
+    <NumOfOpen>0</NumOfOpen>
+  </Station>
+  <Station id="24">
+    <Name>13</Name>
+    <Linq>11</Linq>
+    <TimeOfPlay>0</TimeOfPlay>
+    <DateAdd>31.08.2012</DateAdd>
+    <TimeAdd>22:33</TimeAdd>
+    <NumOfOpen>0</NumOfOpen>
+  </Station>
+</Station>

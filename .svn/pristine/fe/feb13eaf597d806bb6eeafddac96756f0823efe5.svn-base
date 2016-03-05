@@ -1,0 +1,69 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Xml.Linq;
+using System.Text;
+using System.Windows.Forms;
+using MIr;
+
+namespace InternetRadio
+{
+    
+    public partial class Ebout : Form
+    {
+        public Ebout()
+        {
+            InitializeComponent();
+            
+        }
+        
+        ListBox Version = new ListBox();
+        ListBox Date = new ListBox();
+        ListBox Changes = new ListBox();
+        WorkFromFiles workFromFiles = new WorkFromFiles();
+
+        private void Button1Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void TextBox1TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void EboutLoad(object sender, EventArgs e)
+        {
+            lVersion.Text = ProductVersion;
+            tbInfo.Text = null;
+            workFromFiles.LoadVersion(out Version,out Date,out Changes);
+            for (int i = 0;i<Version.Items.Count;i++)
+            {
+                if((string) Version.Items[i]==ProductVersion)
+                {
+                    lDate.Text = Date.Items[i].ToString();
+                }
+                tbInfo.Text += "Версия: " + Version.Items[i] + " " + "Дата: " + Date.Items[i] + Environment.NewLine + 
+                    "Изменения: " + Changes.Items[i] + Environment.NewLine + 
+                    "-------------------------------------------"+Environment.NewLine;
+ 
+            }
+
+           
+
+
+
+        }
+
+        private void BVersionClick(object sender, EventArgs e)
+        {
+            
+            MIr.VersionForm version = new VersionForm();
+            version.Show();
+
+        }
+    }
+}

@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Setting>
+  <Save>True</Save>
+  <Volum>100</Volum>
+  <Mute>False</Mute>
+  <SelectIndex>6</SelectIndex>
+  <IsPlay>True</IsPlay>
+</Setting>

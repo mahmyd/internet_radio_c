@@ -1,0 +1,355 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.IO;
+using System.Drawing;
+using System.Xml.Linq;
+using System.Windows.Forms;
+using InternetRadio;
+using System.Xml;
+
+namespace MIr
+{
+   public class WorkFromFiles
+    {
+       public class WorkFromSetting
+       {
+           private const string SettingFile = "files/Setting.xml";
+           public void LoadSetting(out bool cSaveChecked, out int volum, out bool mutee,out int selectIndex, out bool isPlay)
+           {
+               cSaveChecked=true;
+                volum=100;
+                mutee=false; 
+                selectIndex=-1;
+                isPlay = false;
+
+
+                try { var temp = XDocument.Load(SettingFile); }
+
+                catch
+                {
+
+
+                    var temp = new XDocument(new XElement("Setting", ""));
+                    temp.Save(SettingFile);
+
+
+                }
+                var setting = XDocument.Load(SettingFile);
+               foreach (var el in setting.Root.Elements())
+               {
+                  
+                   {
+                       switch (el.Name.ToString())
+                       {
+                           case "Save": { cSaveChecked= Convert.ToBoolean(el.Value); break; }
+                           case "Volum": { volum = Convert.ToInt32(el.Value); break; }
+                           case "Mute": { mutee = Convert.ToBoolean(el.Value); break; }
+                           case "SelectIndex": { selectIndex = Convert.ToInt32(el.Value); break; }
+                           case "IsPlay": { isPlay = Convert.ToBoolean(el.Value); break; }
+                       }
+                   }
+               }
+               
+
+           }
+           public void SaveSetting(bool cSaveChecked, int volum, bool mute, int selectIndex, bool isPlay)
+           {
+               var satting = new XDocument(new XElement("Setting",
+                   new XElement("Save", cSaveChecked.ToString()),
+                   new XElement("Volum", volum.ToString()),
+                   new XElement("Mute", mute.ToString()),
+                   new XElement("SelectIndex", selectIndex.ToString()),
+                   new XElement ("IsPlay",isPlay.ToString())));
+                   satting.Save(SettingFile);
+               
+
+
+           }
+       }
+       const string FileStation = "files/Station.xml";
+       const string ColorFile = "files/Color.xml";
+
+       
+
+       public void SaveStation( ListBox nameStation,ListBox lincStation,ListBox numbOfOpen, string operation,int index)
+       {
+           
+           switch (operation)
+           {
+                   
+               case "Добавить":
+                   {
+
+                       var doc = new XmlDocument();
+                       doc.LoadXml(File.ReadAllText(FileStation));
+                       var newitem = doc.CreateElement("Station");
+                       var idattr = doc.CreateAttribute("id");
+                       idattr.Value = (index).ToString();
+                       newitem.SetAttributeNode(idattr);
+                       //Дочерние элементы
+                       var nameel = doc.CreateElement("Name");
+                       nameel.InnerText = nameStation.Items[nameStation.Items.Count - 1].ToString();
+                       newitem.AppendChild(nameel);
+                       var nameel2 = doc.CreateElement("Linq");
+                       nameel2.InnerText = lincStation.Items[lincStation.Items.Count - 1].ToString();
+                       newitem.AppendChild(nameel2);
+                       var nameel3 = doc.CreateElement("TimeOfPlay");
+                       nameel3.InnerText = "0";
+                       newitem.AppendChild(nameel3);
+                       var nameel4 = doc.CreateElement("DateAdd");
+                       nameel4.InnerText = DateTime.Now.ToShortDateString();
+                       newitem.AppendChild(nameel4);
+                       var nameel5 = doc.CreateElement("TimeAdd");
+                       nameel5.InnerText = DateTime.Now.ToShortTimeString();
+                       newitem.AppendChild(nameel5);
+                       var nameel6 = doc.CreateElement("NumOfOpen");
+                       nameel6.InnerText = "0";
+                       newitem.AppendChild(nameel6);
+
+                       //Добавим новый Item в документ
+                       if (doc.DocumentElement != null)
+                           doc.DocumentElement.InsertAfter(newitem, doc.DocumentElement.LastChild);
+                       doc.Save(FileStation);
+                       break;
+                   }
+
+               case "Удалить":
+                   {
+                       var station = XDocument.Load(FileStation);
+
+                       foreach (var el in station.Root.Elements())
+                       {
+                           if( el.FirstAttribute.Name == "id"&&el.FirstAttribute.Value==index.ToString())
+                           {el.Remove();}
+                       }
+
+
+                       station.Save(FileStation);
+                        nameStation.Items.RemoveAt(index);
+                        lincStation.Items.RemoveAt(index);
+                       {
+                           //Перезаписываем индексы
+                       var stationT = new XDocument(new XElement("Station", ""));
+                       for (int i = 0; i < nameStation.Items.Count; i++)
+                       {
+                           var track = new XElement("Station",
+                                                         new XAttribute("id", i),
+                                                         new XElement("Name",
+                                                                      nameStation.Items[i]),
+                                                         new XElement("Linq",
+                                                                      lincStation.Items[i]),
+                                                         new XElement("TimeOfPlay",
+                                                                      "0"),
+                                                         new XElement("DateAdd", DateTime.Now.ToShortDateString()),
+                                                         new XElement("TimeAdd", DateTime.Now.ToShortTimeString()),
+                                                         new XElement("NumOfOpen", numbOfOpen.Items[i]));
+
+                           if (stationT.Root != null) stationT.Root.Add(track);
+                           stationT.Save(FileStation);
+                       }
+                       }
+                       break;
+                   }
+               case  "Переименовать":
+                   {
+                       var station = XDocument.Load(FileStation);
+
+                       foreach (var el in station.Root.Elements())
+                       {
+                           if (el.FirstAttribute.Name == "id" && el.FirstAttribute.Value == index.ToString())
+                           {
+                               foreach (var el2 in el.Elements())
+                               {
+                                   if (el2.Name != "Name") continue;
+                                   el2.Value = nameStation.Items[index].ToString();break;
+                               }
+                           }
+                       }
+
+
+                       station.Save(FileStation);
+
+
+                       break;
+                   }
+
+               case "Изменить":
+                   {
+                       var station = XDocument.Load(FileStation);
+
+                       foreach (var el in station.Root.Elements())
+                       {
+                           if (el.FirstAttribute.Name == "id" && el.FirstAttribute.Value == index.ToString())
+                           {
+                               foreach (var el2 in el.Elements())
+                               {
+
+                                   switch ( el2.Name.ToString())
+                                   {
+                                       case "Name":
+                                           {
+                                               el2.Value = nameStation.Items[index].ToString();
+                                               break;
+                                           }
+                                       case "Linq":
+                                           {
+                                              el2.Value = lincStation.Items[index].ToString();
+                                           break;}
+
+                                       case  "NumOfOpen":
+                                           {
+                                               el2.Value = numbOfOpen.Items[index].ToString();
+                                           break;}
+                                   }
+                                   
+                                 /* if (el2.Name=="Name")
+                                   {
+                                       el2.Value = nameStation.Items[index].ToString(); 
+                                       
+                                   }
+                                   if(el2.Name=="Linq")
+                                   {
+                                       el2.Value = lincStation.Items[index].ToString();
+                                       break;
+                                   }
+
+                                   */
+
+                               }
+                           }
+                       }
+
+
+                       station.Save(FileStation);
+
+
+                       break;
+                   }
+
+
+
+           }
+
+
+
+       
+          
+       }
+       
+
+       public ListBox LoadStation(ListBox nameStation, ListBox lincStation,ListBox numbOfOpen)
+       {
+          
+           nameStation.Items.Clear(); lincStation.Items.Clear();
+
+           try     { var temp = XDocument.Load(FileStation);}
+
+           catch   { 
+              
+                    var writ = new StreamWriter(FileStation, true); writ.Dispose();
+                    var temp = new XDocument(new XElement("Station", ""));
+                    temp.Save(FileStation);
+                    
+                    }
+
+           var station = XDocument.Load(FileStation);
+
+           foreach(var el in station.Root.Elements() )
+           {
+              
+               foreach (XElement el2 in el.Elements())
+               {
+                   if (el2.Name == "Name")
+                   { nameStation.Items.Add(el2.Value);  }
+                   if (el2.Name == "Linq")
+                   { lincStation.Items.Add(el2.Value);  }
+                   if (el2.Name == "NumOfOpen")
+                   { numbOfOpen.Items.Add(el2.Value);   }
+               }
+           }
+         
+           return nameStation;
+       }
+
+        public void SaveColor(Int32 color)
+        {
+            var Color = new XDocument(new XElement("Color",color));
+         
+            Color.Save(ColorFile);
+          
+        }
+        public Color LoadColor()
+        {
+
+            try
+            {
+                var xElement = XDocument.Load(ColorFile).Root;
+                if (xElement != null)
+                    return Color.FromArgb(Convert.ToInt32(xElement.Value));
+            }
+            catch
+                { 
+               
+                var writ = new StreamWriter(ColorFile, true); writ.Dispose();
+                var temp = new XDocument(new XElement("Color", "-4144960"));
+                temp.Save(ColorFile);
+               
+
+                 }
+
+            return Color.FromArgb(Convert.ToInt32(XDocument.Load(ColorFile).Root.Value));
+        }
+       
+       private const string VersionFile = "files/Version.xml";
+       
+       public void LoadVersion(out ListBox versionL, out  ListBox date, out ListBox changes)
+        {
+            versionL = new ListBox();
+            date = new ListBox();
+            changes = new ListBox();
+
+
+            var version = XDocument.Load(VersionFile);
+
+            if (version.Root != null)
+                foreach (var el2 in version.Root.Elements().SelectMany(el => el.Elements()))
+                {
+                    if (el2.Name == "Ver")
+                    { versionL.Items.Add(el2.Value); }
+                    if (el2.Name == "Date")
+                    { date.Items.Add(el2.Value); }
+                    if (el2.Name == "Changes")
+                    { changes.Items.Add(el2.Value); }
+
+                }
+
+        }
+
+       public  void AddVersion(ListBox version, ListBox date, ListBox changes)
+
+       {
+           var addVersion = new XDocument(new XElement("Version", ""));
+           for (int i = 0; i < version.Items.Count; i++)
+           {
+               var track = new XElement("Version",
+                   new XAttribute("id", i),
+                   new XElement("Ver",
+                       version.Items[i]),
+                       new XElement("Date",
+                           date.Items[i]),
+                       new XElement("Changes", changes.Items[i]));
+
+               if (addVersion.Root != null) addVersion.Root.Add(track);
+               addVersion.Save(VersionFile);
+               
+           }
+
+
+
+       }
+
+
+    }
+}

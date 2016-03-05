@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Version>
+  <Version id="0">
+    <Ver>1.1.0.0</Ver>
+    <Date>22.11.2011</Date>
+    <Changes>Первое начало, что было уже не помню.</Changes>
+  </Version>
+  <Version id="1">
+    <Ver>1.2.0.0</Ver>
+    <Date>21.03.2012</Date>
+    <Changes>Загрузка настройка громкости.</Changes>
+  </Version>
+  <Version id="2">
+    <Ver>1.2.1.0</Ver>
+    <Date>22.03.2012</Date>
+    <Changes>Всплывающие сообщения,немного поменян дизайн, добавлена кнопка Старт\Стоп.</Changes>
+  </Version>
+  <Version id="3">
+    <Ver>1.3.0.0</Ver>
+    <Date>16.08.2012</Date>
+    <Changes>Всплывающие сообщения. Переделан сохранение и загрузка (добавлено IsPlay)</Changes>
+  </Version>
+  <Version id="4">
+    <Ver>1.3.0.1</Ver>
+    <Date>19.08.2012</Date>
+    <Changes>Добавлена форма VersionForm и работа с ней. Проверка правильности заполнения для добавления версий пока нет</Changes>
+  </Version>
+  <Version id="5">
+    <Ver>1.3.0.2</Ver>
+    <Date>19.08.2012</Date>
+    <Changes>Переделана работа со станциями, разделено добавление новой, удаление, изменение станций</Changes>
+  </Version>
+</Version>
